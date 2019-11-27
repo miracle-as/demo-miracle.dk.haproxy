@@ -1,0 +1,19 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Peter Rovsing
+  description: HAProxy installation and configuration.
+  company: "Miracle.dk"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.8
+  platforms:
+  - name: Ubuntu
+    versions:
+      - Bionic Beaver
+      - 18.04 LTS
+
+  galaxy_tags:
+    - web
+    - networking
+    - cloud

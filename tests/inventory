@@ -1,0 +1,9 @@
+
+# Host groups er defineret som [navn] og kan indeholde 0 eller flere IP/DNS addresser på managed hosts
+[lb_cluster]
+lb01_sandbox ansible_host=195.231.191.150
+
+[web_cluster]
+web01_sandbox ansible_host=195.231.191.148
+web02_sandbox ansible_host=195.231.191.150
+

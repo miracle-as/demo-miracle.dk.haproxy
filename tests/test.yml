@@ -1,0 +1,35 @@
+---
+- hosts: lb_cluster
+  become: true
+  become_method: sudo
+
+  vars:
+    haproxy_frontend_name: 'web_frontend_8080'
+    haproxy_frontend_bind_address: '*'
+    haproxy_frontend_port: 8080
+    haproxy_frontend_mode: 'http'
+
+    haproxy_backend_name: 'web_backend'
+    haproxy_backend_mode: 'http'
+    haproxy_backend_balance_method: 'roundrobin'
+    haproxy_backend_httpchk: ''
+
+
+    haproxy_backend_servers:
+      - name: web01_sandbox
+        address: "{{ hostvars['web01_sandbox'].ansible_host }}:80"
+
+      - name: web02_sandbox
+        address: "{{ hostvars['web02_sandbox'].ansible_host }}:80"
+
+
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt:
+        update_cache: yes
+        cache_valid_time: 600
+      when: ansible_os_family == 'Debian'
+
+  roles:
+    - ../../demo-miracle.dk.haproxy
