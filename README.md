@@ -64,7 +64,7 @@ None.
     - hosts: balancer
       sudo: yes
       roles:
-        - { role: miracle.dk.haproxy }
+        - { role: gammelsmoelf_demo_miracle_dk_haproxy }
 
 ## License
 
